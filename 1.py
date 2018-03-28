@@ -21,7 +21,10 @@ def main():
     url = 'http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1'
     content = get_html(url)
     file_name = str(time.strftime('%Y-%m-%d', time.localtime(time.time()))) + '.jpg'
-    urllib.request.urlretrieve(get_url(content), file_name)
+    if urllib.request.urlretrieve(get_url(content), file_name):
+        print('获取成功')
+    else:
+        print('获取失败')
 
 
 if __name__ == '__main__':
